@@ -54,10 +54,9 @@ form button:hover {
   max-height: 300px;
   overflow-y: auto;
   margin-top: 20px;
-  padding-right: 10px; /* To avoid clipping the scroll bar */
+  padding-right: 10px;
 }
 
-/* Custom scrollbar styles */
 .task-list::-webkit-scrollbar {
   width: 8px;
 }

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 export default function TodoItem({name,done,onToggle, onDelete, onRename}) {
   const [editMode, setEditMode] = useState(false);

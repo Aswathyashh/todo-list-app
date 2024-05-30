@@ -1,19 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
 import TodoList from './components/TodoList';
-import TodoItem from './components/TodoItem';
 import TodoInput from './components/TodoInput'
 import {useEffect, useState} from "react";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
-    // Load tasks from localStorage when the component initializes
+    // Load tasks from localStorage when component initializes
     const storedTasks = localStorage.getItem('tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
 
   useEffect(() => {
-    // Save tasks to localStorage whenever tasks change
+    if (tasks.length === 0) {
+      const initialTasks = [
+        { name: 'Sample Task 1', done: false },
+        { name: 'Sample Task 2', done: true }
+      ];
+      setTasks(initialTasks);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
